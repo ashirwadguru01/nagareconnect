@@ -1,0 +1,400 @@
+/* ── Top Navigation Bar ── */
+.topNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--bg-800);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Brand (clickable button) ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 4px;
+  margin-right: 20px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+  border-radius: 8px 0 0 8px;
+  transition: background 0.18s ease;
+  outline: none;
+}
+
+.brand:hover {
+  background: rgba(34,197,94,0.06);
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+  animation: topGlow 2s infinite;
+}
+
+.brandName {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.brandSub {
+  font-size: 8px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1px;
+  text-align: left;
+}
+
+/* ── Desktop Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar { display: none; }
+
+/* ── Nav Item ── */
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  border: 1px solid transparent;
+  transition:
+    color        0.18s ease,
+    background   0.18s ease,
+    border-color 0.18s ease,
+    transform    0.15s ease,
+    box-shadow   0.18s ease;
+}
+
+.navItem:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-color: var(--border);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.navItem.active {
+  color: #22c55e;
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.25);
+  box-shadow: 0 0 0 1px rgba(34,197,94,0.12);
+}
+
+.navItem.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: #22c55e;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 8px #22c55e88;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navLabel {
+  flex: 1;
+}
+
+/* ── Hamburger button (mobile only) ── */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.hamburger:hover {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.3);
+}
+
+/* ── Mobile Nav Panel (slide down) ── */
+.mobileNav {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background: var(--bg-800);
+  border-bottom: 1px solid var(--border);
+  z-index: 190;
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: slideDown 0.22s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: var(--shadow-lg);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mobile nav items */
+.mobileNavItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.mobileNavItem:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.mobileNavItem.active {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.25);
+}
+
+/* Divider inside mobile menu */
+.mobileDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+/* Mobile logout button */
+.mobileLogout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: none;
+  color: #ef4444;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.mobileLogout:hover {
+  background: rgba(239,68,68,0.1);
+  border-color: rgba(239,68,68,0.2);
+}
+
+/* Overlay behind mobile menu */
+.overlay {
+  position: fixed;
+  inset: 0;
+  top: 56px;
+  background: rgba(0,0,0,0.5);
+  z-index: 180;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── User block (dropdown trigger) ── */
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  max-width: 180px;
+  height: 38px;
+  box-sizing: border-box;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  user-select: none;
+  overflow: visible;
+}
+
+.userBlock:hover,
+.userBlock:focus {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
+}
+
+.userAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  background: var(--bg-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  min-width: 0;
+}
+
+.userName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
+}
+
+.userRole {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  margin-top: 1px;
+}
+
+/* ── Dropdown ── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: var(--shadow-lg);
+  animation: dropFade 0.18s ease;
+  z-index: 300;
+}
+
+.dropItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 12px;
+  background: none;
+  border: none;
+  border-radius: 7px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.dropItem:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.dropDanger:hover {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+}
+
+.dropDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+/* ── Animations ── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+
+/* Tablet: hide nav labels, show icons only */
+@media (max-width: 900px) {
+  .navLabel { display: none; }
+  .navItem { padding: 7px 12px; }
+  .brand { margin-right: 10px; }
+  .brandSub { display: none; }
+}
+
+/* Mobile: hide desktop nav, show hamburger */
+@media (max-width: 640px) {
+  .nav { display: none; }
+  .hamburger { display: flex; }
+  .userInfo { display: none; }
+  .userBlock { max-width: unset; margin-left: 8px; padding: 5px 8px; }
+  .brand { margin-right: 0; border-right: none; padding-right: 8px; }
+  .brandSub { display: none; }
+}
