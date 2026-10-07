@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="users-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>User Management</h1>
+          <p id="users-count" style="color: var(--text-secondary); font-size: 14px;">0 registered users</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="card" style="margin-bottom: 20px; padding: 16px 20px;">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <div style="position: relative; flex: 1; min-width: 200px;">
+              <input
+                type="text"
+                id="search-input"
+                class="form-input"
+                placeholder="Search users by name or email..."
+              />
+            </div>
+            <select id="role-filter" class="form-select" style="width: auto; min-width: 130px;">
+              <option value="all">All Roles</option>
+              <option value="citizen">Citizens</option>
+              <option value="worker">Workers</option>
+              <option value="admin">Admins</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Users Table Card -->
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Role</th>
+                  <th>Points</th>
+                  <th>Status</th>
+                  <th>Joined</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="users-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/admin-users.js"></script>
+</body>
+</html>

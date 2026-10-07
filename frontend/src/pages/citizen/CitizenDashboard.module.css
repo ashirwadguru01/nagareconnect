@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header p { color: var(--text-secondary); font-size: 14px; }
+.statsRow { margin-bottom: 24px; }
+.grid { display: flex; gap: 24px; align-items: flex-start; }
+.pointsCard {
+  min-width: 280px;
+  background: linear-gradient(135deg, rgba(0,184,148,0.15), rgba(108,92,231,0.1));
+  border: 1px solid rgba(0,184,148,0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.pointsHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.pointsLabel { font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+.pointsValue { font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 900; color: var(--text-primary); line-height: 1; }
+.pointsStats { display: flex; gap: 24px; margin-bottom: 16px; }
+.ps_label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; }
+.ps_val { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.pointsTip { font-size: 12px; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 8px 12px; border-radius: var(--radius-sm); }
+.seeAll { font-size: 13px; color: var(--primary); font-weight: 600; }
+.seeAll:hover { text-decoration: underline; }
+.txItem { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); }
+.txItem:last-child { border-bottom: none; }
+.txIcon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+.earned { background: rgba(0,184,148,0.15); color: var(--primary); }
+.redeemed { background: rgba(255,118,117,0.15); color: var(--danger); }
+.txInfo { flex: 1; }
+.txDesc { font-size: 13px; color: var(--text-primary); font-weight: 500; }
+.txDate { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.txPoints { font-size: 14px; font-weight: 700; }
+.earnedText { color: var(--primary); }
+.redeemedText { color: var(--danger); }

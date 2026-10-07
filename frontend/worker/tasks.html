@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assigned Tasks — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="tasks-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>Assigned Tasks</h1>
+          <p id="tasks-count" style="color: var(--text-secondary); font-size: 14px;">0 complaints assigned to you</p>
+        </div>
+
+        <!-- Task List -->
+        <div id="tasks-list" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Dynamically populated -->
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Resolve Modal Backdrop -->
+  <div class="modal-backdrop" id="resolve-modal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Update Status</h2>
+        <button class="modal-close" id="modal-close-btn">×</button>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 14px;">
+        Updating: <strong id="modal-complaint-title" style="color: var(--text-primary);"></strong>
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="modal-note">Resolution Note (optional)</label>
+        <textarea
+          class="form-textarea"
+          id="modal-note"
+          placeholder="Describe what was done to clean or resolve this issue..."
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-ghost" id="btn-mark-inprogress">
+          🔄 Mark In Progress
+        </button>
+        <button class="btn btn-primary" id="btn-mark-resolved">
+          ✅ Mark Resolved
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/worker-tasks.js"></script>
+</body>
+</html>

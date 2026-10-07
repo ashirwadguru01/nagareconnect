@@ -1,0 +1,23 @@
+<!-- Reusable Top Navbar / Header Component Template -->
+<template id="navbar-template">
+  <header class="navbar-header" id="app-navbar">
+    <div class="navbar-left">
+      <a href="/" class="navbar-brand">
+        <span class="navbar-brand-icon">🌿</span>
+        <span class="navbar-brand-name">Nagar <span class="navbar-brand-accent">e-Connect</span></span>
+      </a>
+      <div class="navbar-divider"></div>
+      <span class="navbar-page-title" id="navbar-page-title">Citizen Portal</span>
+    </div>
+
+    <div class="navbar-right">
+      <div class="navbar-user-chip" id="navbar-user-chip" style="display: none;">
+        <span class="navbar-user-avatar" id="navbar-user-avatar">U</span>
+        <span class="navbar-user-name" id="navbar-user-name">User</span>
+      </div>
+      <a href="/citizen/new-complaint.html" class="btn btn-primary btn-sm" id="navbar-cta-btn">
+        <i data-feather="plus-circle"></i> Report Issue
+      </a>
+    </div>
+  </header>
+</template>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="dashboard-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>Admin Dashboard</h1>
+          <p>City-wide complaint management, worker performance, and civic analytics</p>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="grid-4" style="margin-bottom: 24px;">
+          <div class="stat-card" style="--accent-color: #6c5ce7; --icon-bg: rgba(108,92,231,0.1);">
+            <div class="stat-icon">📋</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-total">0</div>
+              <div class="stat-label">Total Complaints</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #fdcb6e; --icon-bg: rgba(253,203,110,0.1);">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-pending">0</div>
+              <div class="stat-label">Pending</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #74b9ff; --icon-bg: rgba(116,185,255,0.1);">
+            <div class="stat-icon">🔄</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-inprogress">0</div>
+              <div class="stat-label">In Progress</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #00b894; --icon-bg: rgba(0,184,148,0.1);">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-resolved">0</div>
+              <div class="stat-label">Resolved</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div style="display: flex; gap: 24px; align-items: stretch; flex-wrap: wrap;">
+          <!-- Resolution Donut -->
+          <div class="card" style="flex: 0 0 280px; min-width: 260px;">
+            <h3 class="card-title" style="margin-bottom: 20px;">Resolution Rate</h3>
+            <div class="donut-wrap">
+              <svg viewBox="0 0 100 100" class="donut">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bg-tertiary)" stroke-width="12" />
+                <circle
+                  id="donut-progress-circle"
+                  cx="50" cy="50" r="40"
+                  fill="none"
+                  stroke="var(--primary)"
+                  stroke-width="12"
+                  stroke-dasharray="0 251"
+                  stroke-linecap="round"
+                  transform="rotate(-90 50 50)"
+                  style="transition: stroke-dasharray 0.8s ease;"
+                />
+              </svg>
+              <div class="donut-text">
+                <span class="donut-val" id="donut-rate-text">0%</span>
+                <span class="donut-label">Resolved</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; margin-top: 16px;">
+              <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: 800;" id="total-citizens">0</div>
+                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Citizens</div>
+              </div>
+              <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: 800;" id="total-workers">0</div>
+                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Workers</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Monthly Trend Bar Chart -->
+          <div class="card" style="flex: 1; min-width: 320px;">
+            <h3 class="card-title" style="margin-bottom: 20px;">Monthly Complaints Trend</h3>
+            <div class="bar-chart" id="monthly-barchart">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Complaints Card -->
+        <div class="card" style="margin-top: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">Recent Complaints</h3>
+            <a href="/admin/complaints.html" class="btn btn-ghost btn-sm">View All</a>
+          </div>
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Citizen</th>
+                  <th>Worker</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="recent-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

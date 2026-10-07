@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complaint Details — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="detail-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <button class="btn btn-ghost btn-sm" onclick="window.history.back()" style="margin-bottom: 20px;">
+          <i data-feather="arrow-left"></i> Back
+        </button>
+
+        <div style="display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start;" class="complaint-grid">
+          <div>
+            <!-- Main Info Card -->
+            <div class="card" style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h1 id="complaint-title" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;"></h1>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span id="complaint-status-badge" class="badge"></span>
+                    <span id="complaint-priority-badge" class="badge"></span>
+                  </div>
+                </div>
+                <span id="complaint-id" style="font-size: 12px; color: var(--text-muted);"></span>
+              </div>
+
+              <!-- Attached Image -->
+              <img
+                id="complaint-img"
+                style="width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; display: none;"
+                alt="Complaint Photo"
+              />
+
+              <p id="complaint-desc" style="color: var(--text-secondary); line-height: 1.7; font-size: 15px;"></p>
+
+              <div class="divider"></div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); align-items: center;">
+                  <i data-feather="map-pin" style="color: var(--primary); flex-shrink: 0; width: 16px; height: 16px;"></i>
+                  <span id="complaint-address"></span>
+                </div>
+                <div style="display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); align-items: center;">
+                  <i data-feather="calendar" style="color: var(--primary); flex-shrink: 0; width: 16px; height: 16px;"></i>
+                  <span id="complaint-date"></span>
+                </div>
+                <div id="complaint-worker-row" style="display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); align-items: center;">
+                  <i data-feather="user" style="color: var(--primary); flex-shrink: 0; width: 16px; height: 16px;"></i>
+                  <span>Assigned to: <strong id="complaint-worker" style="color: var(--text-primary);"></strong></span>
+                </div>
+                <div id="complaint-resolved-row" style="display: flex; gap: 10px; font-size: 14px; color: var(--primary); align-items: center;">
+                  <span id="complaint-resolved"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Timeline Card -->
+            <div class="card">
+              <h3 class="card-title" style="margin-bottom: 20px;">Status Timeline</h3>
+              <div id="timeline-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Tracker Sidebar Card -->
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 20px;">Progress</h3>
+            <div id="progress-steps-container">
+              <!-- Dynamically populated -->
+            </div>
+            <div id="status-alert-box" style="margin-top: 12px;"></div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/complaint-detail.js"></script>
+</body>
+</html>

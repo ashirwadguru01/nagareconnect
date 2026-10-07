@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worker Management — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="workers-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>Worker Management</h1>
+          <p id="workers-count" style="color: var(--text-secondary); font-size: 14px;">0 municipal workers registered</p>
+        </div>
+
+        <!-- Bonus Banner -->
+        <div id="bonus-workers-banner" class="alert alert-success" style="display: none; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <i data-feather="award" style="font-size: 20px; flex-shrink: 0;"></i>
+          <span id="bonus-worker-names"></span>
+        </div>
+
+        <!-- Tabs -->
+        <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+          <button class="btn btn-sm btn-primary" id="tab-overview-btn">
+            Worker Overview
+          </button>
+          <button class="btn btn-sm btn-ghost" id="tab-perf-btn">
+            <i data-feather="trending-up"></i> Monthly Performance
+          </button>
+        </div>
+
+        <!-- Worker Overview Card -->
+        <div class="card" id="overview-card">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Worker</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Assigned</th>
+                  <th>Resolved</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="overview-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Monthly Performance Card -->
+        <div class="card" id="performance-card" style="display: none;">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Performance (Current Month)</h3>
+            <span style="font-size: 13px; color: var(--text-secondary);">Bonus threshold: 100 resolutions</span>
+          </div>
+          <div id="performance-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/admin-workers.js"></script>
+</body>
+</html>

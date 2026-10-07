@@ -1,0 +1,93 @@
+/* ========================================================
+   Navbar Component Styles (Modular)
+   ======================================================== */
+
+.navbar-header {
+  height: var(--header-height, 64px);
+  background: var(--bg-card, #1a2332);
+  border-bottom: 1px solid var(--border, rgba(48, 60, 80, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.navbar-brand-icon {
+  font-size: 20px;
+}
+
+.navbar-brand-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-primary, #e6edf3);
+}
+
+.navbar-brand-accent {
+  color: var(--primary, #00b894);
+}
+
+.navbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border, rgba(48, 60, 80, 0.8));
+}
+
+.navbar-page-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary, #8b949e);
+  letter-spacing: 0.3px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-secondary, #161b22);
+  border: 1px solid var(--border-light, rgba(48, 60, 80, 0.4));
+  padding: 4px 12px 4px 6px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.navbar-user-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary, #00b894);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.navbar-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary, #e6edf3);
+}

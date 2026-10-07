@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report New Issue — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <div class="page-wrapper animate-fadeIn">
+
+        <!-- Page Header -->
+        <div class="page-header">
+          <h1>Report New Issue</h1>
+          <p>Upload a photo and location to report a garbage issue in your area</p>
+        </div>
+
+        <div class="complaint-grid">
+          <!-- Form Section -->
+          <form id="complaint-form" style="display: flex; flex-direction: column;">
+
+            <!-- Issue Details Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Issue Details</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="title">Issue Title *</label>
+                <input
+                  class="form-input"
+                  id="title"
+                  name="title"
+                  placeholder="e.g. Overflowing dustbin near market"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="description">Description *</label>
+                <textarea
+                  class="form-textarea"
+                  id="description"
+                  name="description"
+                  placeholder="Describe the issue in detail..."
+                  required
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="priority">Priority</label>
+                <select class="form-select" id="priority" name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="ward">Ward / Area</label>
+                <input
+                  class="form-input"
+                  id="ward"
+                  name="ward"
+                  placeholder="e.g. Ward 14, Andheri West"
+                />
+              </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="card" style="margin-top: 20px;">
+              <div class="card-header">
+                <h3 class="card-title">Location</h3>
+              </div>
+
+              <button type="button" class="btn btn-ghost" id="detect-loc-btn" style="width: 100%;">
+                <i data-feather="map-pin"></i> Auto-detect My Location
+              </button>
+
+              <div class="grid-2" style="margin-top: 16px;">
+                <div class="form-group">
+                  <label class="form-label" for="lat">Latitude *</label>
+                  <input
+                    class="form-input"
+                    id="lat"
+                    name="lat"
+                    placeholder="19.0760"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lng">Longitude *</label>
+                  <input
+                    class="form-input"
+                    id="lng"
+                    name="lng"
+                    placeholder="72.8777"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="address">Address</label>
+                <input
+                  class="form-input"
+                  id="address"
+                  name="address"
+                  placeholder="Full address (auto-filled on detect)"
+                />
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 20px;">
+              🚀 Submit Complaint (+5 pts)
+            </button>
+          </form>
+
+          <!-- Upload & Tips Sidebar -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Upload Photo Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Upload Photo</h3>
+              </div>
+
+              <div class="dropzone" id="dropzone">
+                <div class="upload-placeholder" id="dropzone-placeholder">
+                  <div class="upload-icon"><i data-feather="upload-cloud"></i></div>
+                  <p>Click or drag to upload image</p>
+                  <span>JPG, PNG, WEBP • Max 5MB</span>
+                </div>
+                <img id="preview-img" class="dropzone-preview" style="display: none;" alt="Preview" />
+                <button type="button" id="remove-img-btn" class="remove-img-btn" style="display: none;" title="Remove image">
+                  ✕
+                </button>
+              </div>
+              <input type="file" id="image-input" accept="image/*" style="display: none;" />
+            </div>
+
+            <!-- Tips Card -->
+            <div class="tips-card">
+              <h4>📸 Tips for a good report</h4>
+              <ul>
+                <li>Take a clear photo showing the garbage issue</li>
+                <li>Include surrounding area for context</li>
+                <li>Ensure your location is accurate</li>
+                <li>Add a detailed description</li>
+                <li>Mark priority as High for urgent issues</li>
+              </ul>
+            </div>
+
+            <!-- Reward Hint -->
+            <div class="reward-hint">
+              <span>🎁</span>
+              <div>
+                <strong>Earn Points!</strong>
+                <p>+5 pts on submission · +20 pts when resolved</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/new-complaint.js"></script>
+</body>
+</html>

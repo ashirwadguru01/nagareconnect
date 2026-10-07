@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worker Dashboard — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="dashboard-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h1 style="font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--text-primary), var(--warning)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              Worker Dashboard
+            </h1>
+            <p style="color: var(--text-secondary); font-size: 14px;">
+              Welcome, <span id="worker-name">Worker</span>
+            </p>
+          </div>
+          <a href="/worker/map.html" class="btn btn-primary">
+            <i data-feather="map"></i> Navigate to Complaints
+          </a>
+        </div>
+
+        <!-- Bonus Banner -->
+        <div id="bonus-alert-banner" class="alert alert-success" style="display: none; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <i data-feather="award" style="font-size: 20px; flex-shrink: 0;"></i>
+          <span>🎉 Congratulations! You've resolved <strong>100+</strong> complaints this month and are eligible for a bonus/increment!</span>
+        </div>
+
+        <!-- 4 Stat Cards -->
+        <div class="grid-4" style="margin-bottom: 24px;">
+          <div class="stat-card" style="--accent-color: #6c5ce7; --icon-bg: rgba(108,92,231,0.1);">
+            <div class="stat-icon">📋</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-assigned">0</div>
+              <div class="stat-label">Assigned Tasks</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #fdcb6e; --icon-bg: rgba(253,203,110,0.1);">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-pending">0</div>
+              <div class="stat-label">Pending</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #74b9ff; --icon-bg: rgba(116,185,255,0.1);">
+            <div class="stat-icon">🔄</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-inprogress">0</div>
+              <div class="stat-label">In Progress</div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="--accent-color: #00b894; --icon-bg: rgba(0,184,148,0.1);">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-monthly">0</div>
+              <div class="stat-label">This Month</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monthly Progress Card -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Bonus Progress</h3>
+            <span style="font-size: 13px; color: var(--text-secondary);">Goal: 100 resolutions</span>
+          </div>
+
+          <div style="margin-bottom: 8px; display: flex; justify-content: space-between; font-size: 14px;">
+            <span id="progress-count-text" style="color: var(--text-secondary);">0 / 100 complaints resolved</span>
+            <span id="progress-status-text" style="font-weight: 700; color: var(--text-muted);">100 more to go</span>
+          </div>
+
+          <div style="height: 10px; background: var(--bg-tertiary); border-radius: 999px; overflow: hidden;">
+            <div id="bonus-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 999px; transition: width 0.6s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Assigned Complaints -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Assigned Complaints</h3>
+            <a href="/worker/tasks.html" class="btn btn-ghost btn-sm">View All</a>
+          </div>
+          <div id="assigned-table-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/worker-dashboard.js"></script>
+</body>
+</html>

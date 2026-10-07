@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map View — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <div style="display: flex; flex-direction: column; height: 100vh; padding: 24px; gap: 16px;">
+
+        <!-- Header & Filters -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h1 style="font-size: 24px; font-weight: 800;">🗺️ Complaints Map</h1>
+            <p id="map-count" style="font-size: 13px; color: var(--text-secondary);">Loading complaints...</p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-sm btn-primary map-filter-btn" data-status="all">All</button>
+            <button class="btn btn-sm btn-ghost map-filter-btn" data-status="pending">Pending</button>
+            <button class="btn btn-sm btn-ghost map-filter-btn" data-status="in_progress">In Progress</button>
+            <button class="btn btn-sm btn-ghost map-filter-btn" data-status="resolved">Resolved</button>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map" style="flex: 1; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); min-height: 400px;"></div>
+
+        <!-- Status Legend -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 6px; fontSize: 12px; color: var(--text-secondary);">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #fdcb6e;"></div>
+            <span>Pending</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; fontSize: 12px; color: var(--text-secondary);">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #74b9ff;"></div>
+            <span>In Progress</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; fontSize: 12px; color: var(--text-secondary);">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #00b894;"></div>
+            <span>Resolved</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; fontSize: 12px; color: var(--text-secondary);">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff7675;"></div>
+            <span>Rejected</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; fontSize: 12px; color: var(--text-secondary);">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #00b894; border: 2px solid #fff;"></div>
+            <span>Your Location</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/map-view.js"></script>
+</body>
+</html>

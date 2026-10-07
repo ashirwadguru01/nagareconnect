@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Complaints — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="complaints-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>All Complaints</h1>
+          <p id="total-count" style="color: var(--text-secondary); font-size: 14px;">0 total complaints in the system</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="card" style="margin-bottom: 20px; padding: 16px 20px;">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <div style="position: relative; flex: 1; min-width: 200px;">
+              <input
+                type="text"
+                id="search-input"
+                class="form-input"
+                placeholder="Search by title or citizen name..."
+              />
+            </div>
+            <select id="status-filter" class="form-select" style="width: auto; min-width: 150px;">
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="in_progress">In Progress</option>
+              <option value="resolved">Resolved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Citizen</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Worker</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="complaints-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Bar -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding: 0 4px; flex-wrap: wrap; gap: 8px;">
+            <span id="page-info" style="font-size: 13px; color: var(--text-muted);">Page 1 of 1</span>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-ghost btn-sm" id="prev-btn" disabled>← Prev</button>
+              <button class="btn btn-ghost btn-sm" id="next-btn" disabled>Next →</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Assign Worker Modal -->
+  <div class="modal-backdrop" id="assign-modal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Assign Complaint</h2>
+        <button class="modal-close" id="modal-close-btn">×</button>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+        Assigning: <strong id="modal-complaint-title" style="color: var(--text-primary);"></strong>
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="worker-select">Select Worker</label>
+        <select class="form-select" id="worker-select">
+          <option value="">-- Choose a worker --</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" id="confirm-assign-btn" style="width: 100%;">
+        Assign Worker
+      </button>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/admin-complaints.js"></script>
+</body>
+</html>

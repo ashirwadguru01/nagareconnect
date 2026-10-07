@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reward Marketplace — Nagar e-Connect</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Mount -->
+    <div id="sidebar-mount"></div>
+
+    <main class="main-content">
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-overlay" style="min-height: 80vh;">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="rewards-content" class="page-wrapper animate-fadeIn" style="display: none;">
+
+        <div class="page-header">
+          <h1>🎁 Reward Marketplace</h1>
+          <p>Redeem your points for amazing rewards, gift cards & civic perks</p>
+        </div>
+
+        <!-- Points Banner -->
+        <div class="points-banner">
+          <div class="banner-left">
+            <div class="banner-icon">
+              <i data-feather="star"></i>
+            </div>
+            <div>
+              <div class="banner-points" id="available-points">0</div>
+              <div class="banner-label">Available Points</div>
+            </div>
+          </div>
+
+          <div class="banner-stats">
+            <div class="b-stat">
+              <span class="b-stat-val" id="total-earned">0</span>
+              <span class="b-stat-label">Total Earned</span>
+            </div>
+            <div class="b-divider"></div>
+            <div class="b-stat">
+              <span class="b-stat-val" id="total-redeemed">0</span>
+              <span class="b-stat-label">Redeemed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+          <button class="tab active" id="tab-catalog-btn">
+            <i data-feather="gift" style="width: 16px; height: 16px;"></i> Rewards Catalog
+          </button>
+          <button class="tab" id="tab-history-btn">
+            <i data-feather="clock" style="width: 16px; height: 16px;"></i> Transaction History
+          </button>
+        </div>
+
+        <!-- Catalog Grid View -->
+        <div class="catalog-grid" id="catalog-view">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Transaction History View -->
+        <div class="card" id="history-card" style="display: none;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Points</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="history-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/rewards.js"></script>
+</body>
+</html>

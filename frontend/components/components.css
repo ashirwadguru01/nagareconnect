@@ -1,0 +1,19 @@
+/*
+ * Nagar e-Connect – Component Bundle (CSS)
+ * =========================================
+ * Single import that pulls in all modular component styles.
+ * Link this AFTER style.css to layer component-specific rules.
+ *
+ * Usage in any HTML page:
+ *   <link rel="stylesheet" href="/css/style.css" />
+ *   <link rel="stylesheet" href="/components/components.css" />
+ */
+
+@import url('./sidebar/sidebar.css');
+@import url('./navbar/navbar.css');
+@import url('./toast/toast.css');
+@import url('./modal/modal.css');
+@import url('./spinner/spinner.css');
+@import url('./badge/badge.css');
+@import url('./stat-card/stat-card.css');
+@import url('./complaint-card/complaint-card.css');

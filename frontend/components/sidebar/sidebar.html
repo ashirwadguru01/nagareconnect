@@ -1,0 +1,43 @@
+<!-- Reusable App Sidebar Template -->
+<template id="sidebar-template">
+  <!-- Mobile toggle button -->
+  <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+    <i data-feather="menu"></i>
+  </button>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+  <aside class="sidebar" id="app-sidebar">
+    <!-- Brand / Logo -->
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon">🌿</div>
+      <div>
+        <div class="sidebar-logo-text">Nagar</div>
+        <div class="sidebar-logo-sub">e-Connect</div>
+      </div>
+    </a>
+
+    <!-- Role Badge -->
+    <div class="role-badge" id="sidebar-role-badge" data-role="citizen">
+      <span class="role-icon"><i data-feather="star" id="sidebar-role-icon"></i></span>
+      <span id="sidebar-role-label">Citizen Portal</span>
+    </div>
+
+    <!-- Navigation List -->
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Navigation</div>
+      <div id="sidebar-nav-links"></div>
+    </nav>
+
+    <!-- User Profile & Logout Footer -->
+    <div class="sidebar-user">
+      <div class="user-avatar" id="sidebar-user-avatar">U</div>
+      <div class="user-info">
+        <div class="user-name" id="sidebar-user-name">User</div>
+        <div class="user-email" id="sidebar-user-email">user@nagareconnect.gov.in</div>
+      </div>
+      <button class="logout-btn" id="sidebar-logout-btn" title="Sign out" aria-label="Sign out">
+        <i data-feather="log-out"></i>
+      </button>
+    </div>
+  </aside>
+</template>
